@@ -1,6 +1,4 @@
 from index import Cpf
-from fatia import Fatia
 
-documento = Cpf(23554588439)
-
+documento = Cpf(13456345554564)
 print(documento)

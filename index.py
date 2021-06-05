@@ -1,4 +1,5 @@
 #Formata os dados do CPF
+from validate_docbr import CPF
 
 class Cpf:
 
@@ -9,27 +10,19 @@ class Cpf:
 		else:
 			raise ValueError("CPF inválido")
 
-	def __str__(self):
-		return self.formata()
-
 	#Valida o CPF
 	def valida(self, cpf):
 		#Se o CPF tiver 11 carteres é um cpf
 		if (len(cpf) == 11):
-			return True
+			validador = CPF()
+			return validador.validate(cpf)
 		#Senão demonstra um erro
 		else:
-			return False
+			raise ValueError("O CPF deve possuir 11 dígitos! Mas você inseriou {} dígitos".format(len(cpf)))
 
 	def formata(self):
-		fatiaUm = self._cpf[:3]
-		fatiaDois = self._cpf[3:6]
-		fatiaTres = self._cpf[6:9]
-		fatiaQuatro = self._cpf[9:]
-		return ("{}.{}.{}-{}".format(
-			fatiaUm,
-			fatiaDois,
-			fatiaTres,
-			fatiaQuatro
-		))
+		mascara = CPF()
+		return mascara.mask(self._cpf)
 	
+	def __str__(self):
+		return self.formata()
