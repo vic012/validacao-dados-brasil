@@ -1,4 +1,5 @@
-from datasBr import DatasBr
+from acessoCep import BuscaCep
 
-cadastro = DatasBr()
-print(cadastro.data_formatada)
+cep = 25870146
+objeto_cep = BuscaCep(cep)
+print(objeto_cep)

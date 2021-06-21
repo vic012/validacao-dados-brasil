@@ -40,6 +40,3 @@ class DatasBr:
 		#Retorna o dia da semana
 		dia_semana = self.momento_cadastro.weekday()
 		return dias_da_semana[dia_semana + 1]
-
-	def tempo_cadastro(self):
-		
