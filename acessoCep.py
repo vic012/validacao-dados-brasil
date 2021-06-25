@@ -24,4 +24,9 @@ class BuscaCep:
 	def acessa_via_cep(self):
 		url = "https://viacep.com.br/ws/{}/json/".format(self.cep)
 		requisicao = requests.get(url)
-		return requisicao
+		dados = requisicao.json()
+		return (
+			dados['bairro'],
+			dados['localidade'],
+			dados['uf']
+		)
